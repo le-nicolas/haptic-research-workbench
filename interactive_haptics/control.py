@@ -148,3 +148,82 @@ def simulate_admittance(
         "velocity": velocity,
         "force": force,
     }
+
+
+def virtual_wall_force(
+    position: float,
+    velocity: float,
+    wall_position: float = 0.7,
+    stiffness: float = 250.0,
+    damping: float = 3.0,
+    friction: float = 0.2,
+    max_force: float | None = 35.0,
+) -> float:
+    if stiffness < 0:
+        raise ValueError("stiffness must be >= 0")
+    if damping < 0:
+        raise ValueError("damping must be >= 0")
+    if friction < 0:
+        raise ValueError("friction must be >= 0")
+    if max_force is not None and max_force <= 0:
+        raise ValueError("max_force must be > 0 when provided")
+
+    penetration = position - wall_position
+    if penetration <= 0:
+        return 0.0
+
+    spring_term = stiffness * penetration
+    damping_term = damping * max(0.0, velocity)
+    friction_term = 0.0 if abs(velocity) < 1e-9 else friction * np.sign(velocity)
+    force = -(spring_term + damping_term + friction_term)
+
+    if max_force is not None:
+        force = float(np.clip(force, -max_force, max_force))
+    return force
+
+
+def simulate_virtual_wall(
+    wall_position: float = 0.7,
+    stiffness: float = 250.0,
+    damping: float = 3.0,
+    friction: float = 0.2,
+    max_force: float = 35.0,
+    motion_center: float = 0.55,
+    motion_amplitude: float = 0.25,
+    motion_frequency_hz: float = 0.7,
+    duration: float = 5.0,
+    dt: float = 0.01,
+) -> dict[str, np.ndarray]:
+    if not 0.0 <= wall_position <= 1.0:
+        raise ValueError("wall_position must be in [0, 1]")
+    if motion_amplitude < 0:
+        raise ValueError("motion_amplitude must be >= 0")
+
+    time = _build_time_vector(duration, dt)
+    position = motion_center + motion_amplitude * np.sin(
+        2.0 * np.pi * motion_frequency_hz * time
+    )
+    position = np.clip(position, 0.0, 1.0)
+    velocity = np.gradient(position, dt)
+
+    force = np.zeros_like(time)
+    penetration = np.maximum(0.0, position - wall_position)
+    for idx in range(len(time)):
+        force[idx] = virtual_wall_force(
+            position=float(position[idx]),
+            velocity=float(velocity[idx]),
+            wall_position=wall_position,
+            stiffness=stiffness,
+            damping=damping,
+            friction=friction,
+            max_force=max_force,
+        )
+
+    return {
+        "time": time,
+        "position": position,
+        "velocity": velocity,
+        "force": force,
+        "penetration": penetration,
+        "wall": np.full_like(time, wall_position),
+    }

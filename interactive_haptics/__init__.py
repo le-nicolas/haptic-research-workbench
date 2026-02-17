@@ -5,6 +5,8 @@ from .control import (
     PIDController,
     simulate_admittance,
     simulate_pid,
+    simulate_virtual_wall,
+    virtual_wall_force,
 )
 
 __all__ = [
@@ -12,4 +14,6 @@ __all__ = [
     "PIDController",
     "simulate_admittance",
     "simulate_pid",
+    "simulate_virtual_wall",
+    "virtual_wall_force",
 ]

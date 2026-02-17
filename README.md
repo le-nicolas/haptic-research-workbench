@@ -21,6 +21,8 @@ The project now includes a cohesive application that users can actually interact
 - Live response plots for:
   - PID-controlled mass-spring-damper dynamics
   - Admittance control under sinusoidal external force
+- Practical virtual-contact behavior:
+  - A `Virtual Wall` tab where you drag a handle into a wall and observe contact force
 - CSV export of simulation results
 - Clean reusable core module (`interactive_haptics`)
 - Basic automated tests for control simulation stability and behavior
@@ -50,6 +52,11 @@ The app contains two practical workbenches:
 - Tune virtual stiffness, damping, mass, and input force profile
 - Inspect position, velocity, and force responses
 - Export run data to CSV
+
+3. `Virtual Wall`
+- Drag the on-screen handle into a wall to trigger contact force
+- Tune wall stiffness, damping, friction, and force limits
+- Run auto demos and export interaction logs to CSV
 
 ## Repository structure
 
