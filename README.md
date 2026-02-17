@@ -3,6 +3,7 @@
 This repository started as a collection of haptics and ML experiments. It is now upgraded into a practical, interactive desktop toolkit for rapid haptic control exploration.
 
 ![Haptic Research Workbench preview](assets/readme-preview.svg)
+![Haptic process animation](assets/haptic-process.gif)
 
 ## Reconstructed intent
 

@@ -1,78 +1,90 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-label="Haptic Research Workbench preview">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#1e293b"/>
+      <stop offset="0%" stop-color="#0a1b34"/>
+      <stop offset="100%" stop-color="#0b3b2c"/>
     </linearGradient>
     <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#111827"/>
-      <stop offset="100%" stop-color="#0b1220"/>
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#111827"/>
     </linearGradient>
-    <linearGradient id="plotA" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#22c55e"/>
-      <stop offset="100%" stop-color="#06b6d4"/>
+    <linearGradient id="pidPlot" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
     </linearGradient>
-    <linearGradient id="plotB" x1="0" y1="0" x2="1" y2="0">
+    <linearGradient id="forcePlot" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="#f59e0b"/>
       <stop offset="100%" stop-color="#ef4444"/>
     </linearGradient>
     <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.5"/>
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.45"/>
     </filter>
   </defs>
 
   <rect width="1200" height="650" fill="url(#bg)"/>
-  <circle cx="140" cy="110" r="110" fill="#06b6d4" opacity="0.12"/>
-  <circle cx="1060" cy="540" r="180" fill="#22c55e" opacity="0.1"/>
+  <circle cx="100" cy="110" r="120" fill="#22d3ee" opacity="0.12"/>
+  <circle cx="1080" cy="560" r="170" fill="#34d399" opacity="0.1"/>
 
-  <text x="70" y="80" font-family="Segoe UI, Arial, sans-serif" font-size="42" fill="#f8fafc" font-weight="700">
+  <text x="64" y="80" font-family="Segoe UI, Arial, sans-serif" font-size="42" fill="#f8fafc" font-weight="700">
     Haptic Research Workbench
   </text>
-  <text x="70" y="118" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#cbd5e1">
-    Interactive PID and Admittance control simulator
+  <text x="64" y="118" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#cbd5e1">
+    PID + Admittance + Virtual Wall interaction
   </text>
 
-  <rect x="70" y="160" width="1060" height="430" rx="16" fill="url(#card)" stroke="#334155" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="64" y="154" width="1072" height="438" rx="16" fill="url(#card)" stroke="#334155" stroke-width="2" filter="url(#shadow)"/>
 
-  <rect x="95" y="190" width="280" height="370" rx="10" fill="#0f172a" stroke="#334155"/>
-  <text x="112" y="220" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#e2e8f0" font-weight="600">PID Parameters</text>
+  <rect x="88" y="184" width="300" height="378" rx="10" fill="#0b1220" stroke="#334155"/>
+  <text x="106" y="214" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#e2e8f0" font-weight="600">Virtual Wall Parameters</text>
 
-  <rect x="112" y="238" width="240" height="30" rx="6" fill="#111827" stroke="#334155"/>
-  <text x="122" y="258" font-family="Consolas, monospace" font-size="14" fill="#93c5fd">Kp: 12.0</text>
+  <rect x="106" y="234" width="264" height="30" rx="6" fill="#111827" stroke="#334155"/>
+  <text x="118" y="254" font-family="Consolas, monospace" font-size="14" fill="#a5b4fc">Wall Position: 0.70</text>
 
-  <rect x="112" y="278" width="240" height="30" rx="6" fill="#111827" stroke="#334155"/>
-  <text x="122" y="298" font-family="Consolas, monospace" font-size="14" fill="#93c5fd">Ki: 1.2</text>
+  <rect x="106" y="274" width="264" height="30" rx="6" fill="#111827" stroke="#334155"/>
+  <text x="118" y="294" font-family="Consolas, monospace" font-size="14" fill="#a5b4fc">Stiffness: 260.0</text>
 
-  <rect x="112" y="318" width="240" height="30" rx="6" fill="#111827" stroke="#334155"/>
-  <text x="122" y="338" font-family="Consolas, monospace" font-size="14" fill="#93c5fd">Kd: 0.4</text>
+  <rect x="106" y="314" width="264" height="30" rx="6" fill="#111827" stroke="#334155"/>
+  <text x="118" y="334" font-family="Consolas, monospace" font-size="14" fill="#a5b4fc">Damping: 3.0</text>
 
-  <rect x="112" y="358" width="240" height="30" rx="6" fill="#111827" stroke="#334155"/>
-  <text x="122" y="378" font-family="Consolas, monospace" font-size="14" fill="#93c5fd">Target: 0.15 m</text>
+  <rect x="106" y="354" width="264" height="30" rx="6" fill="#111827" stroke="#334155"/>
+  <text x="118" y="374" font-family="Consolas, monospace" font-size="14" fill="#a5b4fc">Friction: 0.25</text>
 
-  <rect x="112" y="412" width="116" height="38" rx="7" fill="#0ea5e9"/>
-  <text x="126" y="436" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="600">Run Simulation</text>
+  <rect x="106" y="406" width="128" height="40" rx="8" fill="#0ea5e9"/>
+  <text x="124" y="431" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="600">Run Auto Demo</text>
+  <rect x="242" y="406" width="128" height="40" rx="8" fill="#334155"/>
+  <text x="279" y="431" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="600">Export CSV</text>
 
-  <rect x="236" y="412" width="116" height="38" rx="7" fill="#334155"/>
-  <text x="268" y="436" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#f8fafc" font-weight="600">Export CSV</text>
+  <rect x="410" y="184" width="700" height="46" rx="10" fill="#0b1220" stroke="#334155"/>
+  <rect x="424" y="193" width="148" height="28" rx="8" fill="#1f2937"/>
+  <text x="448" y="212" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#cbd5e1" font-weight="600">PID</text>
+  <rect x="578" y="193" width="172" height="28" rx="8" fill="#1f2937"/>
+  <text x="614" y="212" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#cbd5e1" font-weight="600">Admittance</text>
+  <rect x="756" y="193" width="178" height="28" rx="8" fill="#1d4ed8"/>
+  <text x="799" y="212" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#f8fafc" font-weight="600">Virtual Wall</text>
 
-  <rect x="395" y="190" width="705" height="42" rx="10" fill="#0f172a" stroke="#334155"/>
-  <rect x="410" y="198" width="170" height="26" rx="8" fill="#1d4ed8"/>
-  <text x="430" y="216" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#f8fafc" font-weight="600">PID Workbench</text>
-  <rect x="588" y="198" width="188" height="26" rx="8" fill="#1f2937"/>
-  <text x="612" y="216" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#cbd5e1" font-weight="600">Admittance Workbench</text>
+  <rect x="410" y="240" width="700" height="148" rx="10" fill="#0b1220" stroke="#334155"/>
+  <polyline fill="none" stroke="url(#pidPlot)" stroke-width="4"
+    points="430,355 464,338 498,325 532,313 566,302 600,294 634,289 668,286 702,287 736,291 770,298 804,308 838,321 872,337 906,349 940,357 974,360 1008,358 1042,350 1078,336"/>
+  <line x1="430" y1="307" x2="1078" y2="307" stroke="#64748b" stroke-dasharray="6 6" opacity="0.7"/>
+  <text x="428" y="262" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#cbd5e1">Position / Target Response</text>
 
-  <rect x="395" y="245" width="705" height="160" rx="10" fill="#0b1220" stroke="#334155"/>
-  <polyline fill="none" stroke="url(#plotA)" stroke-width="4"
-    points="415,370 450,350 486,332 522,314 558,298 594,290 630,285 666,283 702,284 738,288 774,296 810,307 846,322 882,339 918,355 954,366 990,371 1026,370 1062,363 1085,350"/>
-  <line x1="415" y1="315" x2="1085" y2="315" stroke="#64748b" stroke-dasharray="6 6" opacity="0.75"/>
-  <text x="412" y="264" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#cbd5e1">Position vs Target</text>
+  <rect x="410" y="398" width="700" height="164" rx="10" fill="#0b1220" stroke="#334155"/>
+  <line x1="444" y1="470" x2="1078" y2="470" stroke="#64748b" stroke-width="4"/>
+  <rect x="910" y="432" width="8" height="76" fill="#ef4444"/>
+  <circle cx="972" cy="470" r="16" fill="#f97316" stroke="#1e293b" stroke-width="2"/>
+  <line x1="972" y1="436" x2="920" y2="436" stroke="#22c55e" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="918" y="424" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#86efac">Force</text>
+  <polyline fill="none" stroke="url(#forcePlot)" stroke-width="3.5"
+    points="430,548 462,522 494,544 526,505 558,550 590,512 622,552 654,516 686,546 718,518 750,540 782,519 814,548 846,526 878,542 910,530 942,521 974,514 1006,506 1038,500 1078,492"/>
+  <text x="428" y="420" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#cbd5e1">Virtual wall contact and force trace</text>
 
-  <rect x="395" y="420" width="705" height="140" rx="10" fill="#0b1220" stroke="#334155"/>
-  <polyline fill="none" stroke="url(#plotB)" stroke-width="3.5"
-    points="415,512 450,478 486,500 522,456 558,510 594,470 630,520 666,468 702,508 738,462 774,502 810,472 846,515 882,476 918,506 954,482 990,512 1026,490 1062,520 1085,500"/>
-  <text x="412" y="442" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#cbd5e1">Control Signal</text>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 z" fill="#22c55e"/>
+    </marker>
+  </defs>
 
-  <text x="70" y="622" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#94a3b8">
-    Built from your haptics experiments: practical GUI + clean simulation core + testable workflows
+  <text x="64" y="624" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#cbd5e1">
+    Practical haptics lab: interactive contact physics, controls tuning, exportable experiments
   </text>
 </svg>
